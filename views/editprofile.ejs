@@ -1,0 +1,31 @@
+<% if ( flash.length > 0 && flash!='[object Object]') { %>
+	<div class="alert">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		<strong><%= flash%> </strong>
+	  </div>
+<% } %>
+<% if ( success.length > 0  && success!='[object Object]') { %>
+	<div class="success">
+		<span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+		<strong><%= success%> </strong>
+	  </div>
+<% } %>
+<div class="content" id="content">
+    <form action="http://localhost:8000/editprofile/edit" method="POST">
+        <div class="form-group">
+            <label for="email">Email-ID</label>
+        </div>
+        <textarea name="email" id="email" required=true cols="120" ><%= data.email %></textarea>
+        <div class="form-group">
+            <label for="name">Full Name</label>
+        </div>
+        <textarea name="name" id="name" required=true cols="120"><%= data.name %></textarea>
+        <button type="submit" class="button">Edit</button>
+    </form>
+    <form action="http://localhost:8000/editprofile/delete" method="POST">
+        <button type="submit" class="button">DELETE ACCOUNT</button>
+    </form>
+    <form action="http://localhost:8000/logout" method="GET">
+        <button type="submit" class="button">LOG OUT</button>
+    </form>
+</div>

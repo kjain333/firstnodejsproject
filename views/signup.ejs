@@ -1,0 +1,20 @@
+<div class="content" id="content">
+    <form action="http://localhost:8000/signup" method="POST">
+        <div class="form-group">
+            <label for="email">Email-ID</label>
+        </div>
+        <textarea name="email" id="email" required=true cols="120" ></textarea>
+        <div class="form-group">
+            <label for="name">Full Name</label>
+        </div>
+        <textarea name="name" id="name" required=true cols="120"></textarea>
+        <div class="form-group">
+            <label for="password">Password</label>
+        </div>
+        <textarea name="password" id="password" required=true cols="120"></textarea>
+        <button type="submit" class="button">SUBMIT</button>
+    </form>
+    <form action="http://localhost:8000/login/googleauth" method="GET">
+        <button type="submit" class="button">GOOGLE SIGN-UP</button>
+    </form>
+</div>

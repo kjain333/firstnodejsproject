@@ -1,0 +1,31 @@
+<div class="content" id="content">
+    <form action="http://localhost:8000/<%= data._id %>/_method=EDIT " method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="Title">Title</label>
+        </div>
+        <textarea name="title" id="title" required=true cols="120" ><%= data.title %></textarea>
+        <div class="form-group">
+            <label for="Author">Author</label>
+        </div>
+        <textarea name="author" id="author" required=true cols="120"><%= data.author %></textarea>
+        <div class="form-group">
+            <label for="Date">Date</label>
+        </div>
+        <textarea name="date" id="date" required=true cols="120"><%= data.date %></textarea>
+        <div class="form-group">
+            <label for="sdesc">Short-description</label>
+        </div>
+        <textarea name="sdesc" id="sdesc" required=true rows="4" cols="120" ><%= data.sdesc %></textarea>
+        <div class="form-group">
+            <label for="ldesc">Long-description</label>
+        </div>
+        <textarea name="ldesc" id="ldesc" required=true rows="10" cols="120"><%= data.ldesc %></textarea>
+        <div class="form-group">
+            <label for="Title">Please upload Supplementary material for your blog like images, videos, pdf. Max size allowed is 10MB and max number of files allowed is 5.Please note choosing new files will remove previous supllementary material so pls choose files accordingly.</label>
+        </div>
+        <div class="form-group">
+            <input type="file" name="profileImage" multiple/>
+        </div>
+        <button type="submit" class="button">SUBMIT</button>
+    </form>
+</div>

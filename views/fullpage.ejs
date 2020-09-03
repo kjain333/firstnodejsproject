@@ -1,0 +1,50 @@
+<style>
+    body {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background: white;
+}.header {
+  padding: 30px;
+  font-size: 40px;
+  text-align: center;
+}
+</style>
+<div class="header">
+    <h1><%= detail.title %> </h1>
+</div>
+<h4><%= detail.ldesc %> </h4>
+<ul>
+	<% for(var file of detail.file){ %>
+    <embed src="/<%= file %> " width="30%" height="512px" style="margin: 30px";/>
+	<% } %>
+</ul>
+<ul>
+    <h1>Comments</h1>
+    <% if(detail.comment.length==0) {%>
+        <h3>Be the first one to comment</h3>
+    <% } %> 
+	<% for(var comment of detail.comment){ %>
+        <div class="card">
+			<div class="container">
+			   <h3><%= comment.comment %></h3>
+            </div>
+            <form action="http://localhost:8000/comment/<%= comment._id %>/edit"  method="GET">
+                <button type="submit" class="button">EDIT COMMENT</button>
+            </form>	
+            <form action="http://localhost:8000/comment/<%= comment._id %>/delete"  method="POST">
+                <button type="submit" class="button">DELETE COMMENT</button>
+            </form>	
+		</div>
+	<% } %>
+</ul>
+<div class="row">
+	<form action="http://localhost:8000/comment/<%= detail._id %>"  method="GET">
+        <button type="submit" class="button">ADD COMMENT</button>
+    </form>				
+    <form action="http://localhost:8000/<%= detail._id %>/_method=EDIT "  method="GET">
+           <button type="submit" class="button">EDIT</button>
+    </form>
+    <form action="http://localhost:8000/<%= detail._id %>/_method=DELETE "  method="POST">
+        <button type="submit" class="button">DELETE</button>
+    </form>
+ 
+</div>

@@ -1,0 +1,10 @@
+<div class="content" id="content">
+    <form action="http://localhost:8000/comment/<%= doc.id %>/edit" method="POST">
+        <div class="form-group">
+            <label for="comment">Comment</label>
+        </div>
+        <textarea name="comment" id="comment" required=true cols="120" ><%= doc.comment  %></textarea>
+        <button type="submit" class="button">EDIT</button>
+    </form>
+    
+</div>

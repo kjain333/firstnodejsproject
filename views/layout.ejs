@@ -1,0 +1,151 @@
+           <style>
+            .alert {
+                margin-top: 20px;
+                padding: 20px;
+                background-color: #f44336;
+                color: white;
+            }
+            .success {
+                margin-top: 20px;
+                padding: 20px;
+                background-color:limegreen;
+                color: white;
+            }
+
+            .closebtn {
+                margin-left: 15px;
+                color: white;
+                font-weight: bold;
+                float: right;
+                font-size: 22px;
+                line-height: 20px;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+
+            .closebtn:hover {
+                color: black;
+            }      
+            textarea{
+                width: 100%;
+                font-size: 16px;
+                margin-bottom: 20px;
+                padding: 10px 10px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }   
+            body {
+                margin: 0;
+                font-family: "Lato", sans-serif;
+            }
+            .card {
+                margin-bottom: 20px;
+                padding: 10px 10px;
+                /* Add shadows to create the "card" effect */
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+                transition: 0.3s;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+            }
+
+
+                /* On mouse-over, add a deeper shadow */
+                .card:hover {
+                    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+                }
+
+            /* Add some padding inside the card container */
+            .container {
+                padding: 2px 16px;
+            }
+
+            .form-group {
+                padding: 12px 20px;
+                margin: 8px 0;
+                font-family: "Lato", sans-serif;
+            }
+            .form-control {
+                width: 100%;
+                padding: 12px 20px;
+                margin: 8px 0;
+                box-sizing: border-box;
+                font-family: "Lato", sans-serif;
+            }
+            .button {
+                background-color: blueviolet; 
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+            }
+            .sidebar {
+                margin: 0;
+                padding: 0;
+                width: 200px;
+                background-color: #f1f1f1;
+                position: fixed;
+                height: 100%;
+                overflow: auto;
+            }
+
+                .sidebar a {
+                    display: block;
+                    color: black;
+                    padding: 16px;
+                    text-decoration: none;
+                }
+
+                    .sidebar a.active {
+                        background-color: blueviolet;
+                        color: white;
+                    }
+
+                    .sidebar a:hover:not(.active) {
+                        background-color: cadetblue;
+                        color: white;
+                    }
+
+            div.content {
+                margin-left: 200px;
+                padding: 1px 16px;
+                height: 1000px;
+            }
+
+            @media screen and (max-width: 700px) {
+                .sidebar {
+                    width: 100%;
+                    height: auto;
+                    position: relative;
+                }
+
+                    .sidebar a {
+                        float: left;
+                    }
+
+                div.content {
+                    margin-left: 0;
+                }
+            }
+
+            @media screen and (max-width: 400px) {
+                .sidebar a {
+                    text-align: center;
+                    float: none;
+                }
+            }
+        </style>
+        <div class="sidebar">
+            <a href="/" <% if (page_name === 'home') { %>class="active" <% } %>>Home</a>
+            <a href="/add" <% if (page_name === 'add') { %>class="active" <% } %>>Add a Blog</a>
+            <% if(user){ %>
+                <a href="/editprofile" <% if (page_name === 'editprofile') { %>class="active" <% } %>>Edit Profile</a>
+            <% } %>
+            <% if(!user){ %>
+                <a href="/login" <% if (page_name === 'login') { %>class="active" <% } %>>Log In</a>
+                <a href="/signup" <% if (page_name === 'signup') { %>class="active" <% } %>>Sign Up</a> 
+            <% } %>
+        </div>
+        <div class="content">
+            <%- body %>
+        </div>
